@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function greet() {
+      let name = '';
+      name = document.getElementById('nameID').value;
+      displayMessage(name);
+    }
+
+    function displayMessage(name) {
+      if(name === '')name = 'there.';
+      console.log('hello ' + name);
+    }
+
+    function greetings(name){
+      if(!name){
+        console.log('hello there.');
+      }
+      else{
+        console.log(`hello ${name}`);
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <input id="nameID" type="text" placeholder="Your Name.">
+  <!-- <button onclick="greetings('chetu')">Click Me</button> -->
+   <button onclick="greet()">Submit</button>
+
+
+</body>
+
+</html>

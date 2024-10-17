@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function convert() {
+      const tempMagnitude = document.getElementById('tempID').value;
+      const unit = document.getElementById('unitID').value;
+      let ans = '';
+
+      if (unit === 'C') {
+        ans = (tempMagnitude * 9 / 5) + 32;
+        ans = ans + 'F';
+      }
+      else if(unit === 'F') {
+        ans = (tempMagnitude - 32) * 5 / 9;
+        ans = ans + 'C';
+      }
+      else{
+        display('Please select a valid unit.');
+      }
+
+      display(ans);
+    }
+
+    function display(ans) {
+      console.log(ans);
+    }
+  </script>
+</head>
+
+<body>
+  <input id="tempID" type="text" placeholder="enter temp">
+  <!-- <input id="unitID" type="text" placeholder="C/F"> -->
+   <select name="Temperature Units" id="unitID">
+    <option value="select unit">Select Unit</option>
+    <option value="C">C</option>
+    <option value="F">F</option>
+   </select>
+  <button onclick="convert()">Convert</button>
+</body>
+
+</html>

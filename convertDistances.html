@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function convert() {
+      const magnitude = document.getElementById('magnitude').value;
+      const fromUnit = document.getElementById('fromID').value;
+      const toUnit = document.getElementById('toID').value;
+      let ans = '';
+      console.log(magnitude);
+
+      switch (fromUnit) {
+
+        case 'miles':
+          switch (toUnit) {
+            case 'km':
+            case 'kms':
+              ans = (magnitude * 1.6) + ' km';
+              break;
+
+            case 'ft':
+            case 'feet':
+              ans = (magnitude * 5280) + ' ft';
+              break;
+
+            default:
+              ans = magnitude + ' miles';
+              break;
+          }
+          break;
+
+        case 'km':
+          switch (toUnit) {
+            case 'miles':
+              ans = (magnitude / 1.6) + ' miles';
+              break;
+
+            case 'ft':
+              ans = (magnitude * 3281) + ' ft';
+              break;
+
+            default:
+              ans = (magnitude) + ' km';
+              break;
+          }
+          break;
+
+        case 'ft':
+          switch (toUnit) {
+            case 'miles':
+              ans = (magnitude / 5280) + ' miles';
+              break;
+
+            case 'km':
+              ans = (magnitude / 3281) + ' km';
+              break;
+
+            default:
+              ans = (magnitude) + ' ft';
+              break;
+          }
+          break;
+      }
+
+      display(ans);
+    }
+
+    function display(ans) {
+      console.log(ans);
+    }
+  </script>
+</head>
+
+<body>
+  <input id="magnitude" type="number" placeholder="magnitude">
+  <select name="from" id="fromID">
+    <option value="km">km</option>
+    <option value="miles">miles</option>
+    <option value="ft">ft</option>
+  </select>
+
+  <select name="to" id="toID">
+    <option value="km">km</option>
+    <option value="miles">miles</option>
+    <option value="ft">ft</option>
+  </select>
+
+  <!-- <input id="fromID" type="text" placeholder="from">
+  <input id="toID" type="text" name="" placeholder="to"> -->
+  <button onclick="convert()">Convert</button>
+
+</body>
+
+</html>
